@@ -1,6 +1,8 @@
 #include <mem.h>
 #include <rom.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(int ac, char **av)
 {
@@ -21,4 +23,6 @@ int main(int ac, char **av)
     printf("   Type:         %s\n", romTypeString[romHeader.romType]);
     printf("   Size:         %d Kb\n", romSize[romHeader.romType].bytes);
     printf("   Entry point:  0x%X\n", romHeader.entryPoint);
+
+    srand(time(NULL));
 }
