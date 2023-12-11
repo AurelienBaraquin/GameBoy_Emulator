@@ -2,11 +2,6 @@
 
 #include <sys/types.h>
 
-#define ROM_OFFSET_NAME 0x134
-#define ROM_OFFSET_TYPE 0x147
-#define ROM_OFFSET_ROM_SIZE 0x148
-#define ROM_OFFSET_RAM_SIZE 0x149
-
 enum romType {
 	ROM_PLAIN = 0x00,
 	ROM_MBC1 = 0x01,
@@ -64,6 +59,30 @@ static const char *romTypeString[256] = {
 	[ROM_HUDSON_HUC3] = "ROM_HUDSON_HUC3",
 	[ROM_HUDSON_HUC1] = "ROM_HUDSON_HUC1",
 };
+
+#define ROM_NAME_SIZE 0x10      // 16 bytes
+#define ROM_HEADER_SIZE 0x150   // 336 bytes
+
+#define ROM_HEADER_OFFSET 0x100 // 256 bytes
+
+struct romHeader_t {
+    u_int32_t entryPoint;       // 0x100 - 0x103
+    u_int8_t nintendoLogo[0x30];// 0x104 - 0x133
+    char title[ROM_NAME_SIZE];  // 0x134 - 0x143
+    u_int8_t cgbFlag;           // 0x143
+    u_int16_t newLicenseeCode;  // 0x144 - 0x145
+    u_int8_t sgbFlag;           // 0x146
+    enum romType romType;       // 0x147
+    size_t romSize;             // 0x148
+    size_t ramSize;             // 0x149
+    u_int8_t destinationCode;   // 0x14A
+    u_int8_t oldLicenseeCode;   // 0x14B
+    u_int8_t maskRomVersion;    // 0x14C
+    u_int8_t headerChecksum;    // 0x14D
+    u_int16_t globalChecksum;   // 0x14E - 0x14F
+};
+
+extern struct romHeader_t romHeader;
 
 u_int8_t loadROM(char *romPath);
 void unloadROM(void);

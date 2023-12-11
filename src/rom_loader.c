@@ -7,14 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define ROM_NAME_SIZE 0x10      // 16 bytes
-#define ROM_HEADER_SIZE 0x180   // 384 bytes
-
-char romName[ROM_NAME_SIZE + 1]; // +1 for \0 terminator
-enum romType romType;
-size_t romSize;
-size_t ramSize;
-u_int8_t header[ROM_HEADER_SIZE];
+struct romHeader_t romHeader;
 
 u_int8_t loadROM(char *romPath)
 {
@@ -39,6 +32,13 @@ u_int8_t loadROM(char *romPath)
         exit(EXIT_FAILURE);
     }
 
+    memset(&romHeader, 0, sizeof(romHeader));
+
     // Read header
-    fread(header, 1, ROM_HEADER_SIZE, f);
+    fseek(f, ROM_HEADER_OFFSET, SEEK_SET);
+    fread(&romHeader, sizeof(romHeader), 1, f);
+
+    printf("title: %s\n", romHeader.title);
+    printf("romSize: %ld\n", romHeader.romSize);
+    printf("ramSize: %ld\n", romHeader.ramSize);
 }
