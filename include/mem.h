@@ -11,7 +11,3 @@ extern u_int8_t vram[0x2000];
 extern u_int8_t oam[0x100];
 extern u_int8_t wram[0x2000];
 extern u_int8_t hram[0x80];
-
-#include "rom.h"
-
-extern struct romHeader_t romHeader;

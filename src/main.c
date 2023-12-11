@@ -1,8 +1,12 @@
-#include <sys/types.h>
-
-u_int8_t loadROM(char *romPath);
+#include <mem.h>
 
 int main(int ac, char **av)
 {
-    loadROM(av[1]);
+    if (ac != 2) {
+        printf("Usage: %s <ROM path>\n", av[0]);
+        return 1;
+    }
+
+    if (loadROM(av[1]) != 0)
+        return 1;
 }

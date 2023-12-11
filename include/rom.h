@@ -148,5 +148,7 @@ static const struct sizeDecode_t ramSize[256] = {
     [0x05] = { .size = 0x05, .bytes = 0x10000 },
 };
 
+extern struct romHeader_t romHeader;
+
 // Function declarations
 int loadROM(char *romPath);

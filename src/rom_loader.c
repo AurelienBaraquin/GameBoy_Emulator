@@ -1,3 +1,4 @@
+#include <rom.h>
 #include <mem.h>
 
 #include <fcntl.h>
