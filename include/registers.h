@@ -2,7 +2,7 @@
 
 #include <sys/types.h>
 
-struct registers {
+extern struct registers {
 	struct {
 		union {
 			struct {
@@ -45,4 +45,4 @@ struct registers {
 	
 	u_int16_t sp;
 	u_int16_t pc;
-} extern registers;
+} registers;

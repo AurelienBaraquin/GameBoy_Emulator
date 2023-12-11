@@ -38,7 +38,7 @@ enum romType {
 };
 
 // Array of strings representing the ROM types
-static const char *romTypeString[256] = {
+static const __attribute__ ((unused)) char *romTypeString[256] = {
     [ROM_PLAIN] = "ROM_PLAIN",
     [ROM_MBC1] = "ROM_MBC1",
     [ROM_MBC1_RAM] = "ROM_MBC1",
