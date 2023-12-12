@@ -6,6 +6,12 @@ extern struct registers {
 	struct {
 		union {
 			struct {
+				// Flags register
+				// [ 0 1 2 3 4 5 6 7 ]
+					// Bit 4: "carry"
+					// Bit 5: "half carry"
+					// Bit 6: "subtraction"
+					// Bit 7: "zero"
 				u_int8_t f;
 				u_int8_t a;
 			};
