@@ -9,7 +9,8 @@ struct instruction {
 };
 
 static const struct instruction instructions[256] = {
-	[0x00] = {"NOP", 0, nop},
+	[0x00] = {"NOP", 1, nop},
 };
 
 void step(void);
+void execute(struct instruction instruction);
