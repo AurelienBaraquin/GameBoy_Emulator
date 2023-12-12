@@ -5,7 +5,7 @@
 // The information in this file was obtained from the website: https://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 // ----------------------------------
 
-#include <sys/types.h>
+#include <types.h>
 
 // Enum representing the different types of ROMs
 enum romType {
@@ -77,20 +77,20 @@ static const __attribute__ ((unused)) char *romTypeString[256] = {
 
 // Struct representing the ROM header
 struct romHeader_t {
-    u_int32_t entryPoint;       // 0x100 - 0x103
-    u_int8_t nintendoLogo[0x30];// 0x104 - 0x133
+    u32 entryPoint;       // 0x100 - 0x103
+    u8 nintendoLogo[0x30];// 0x104 - 0x133
     char title[ROM_NAME_SIZE];  // 0x134 - 0x143
-    u_int8_t cgbFlag;           // 0x143
-    u_int16_t newLicenseeCode;  // 0x144 - 0x145
-    u_int8_t sgbFlag;           // 0x146
-    u_int8_t romType;           // 0x147
-    u_int8_t romSize;           // 0x148
-    u_int8_t ramSize;           // 0x149
-    u_int8_t destinationCode;   // 0x14A
-    u_int8_t oldLicenseeCode;   // 0x14B
-    u_int8_t maskRomVersion;    // 0x14C
-    u_int8_t headerChecksum;    // 0x14D
-    u_int16_t globalChecksum;   // 0x14E - 0x14F
+    u8 cgbFlag;           // 0x143
+    u16 newLicenseeCode;  // 0x144 - 0x145
+    u8 sgbFlag;           // 0x146
+    u8 romType;           // 0x147
+    u8 romSize;           // 0x148
+    u8 ramSize;           // 0x149
+    u8 destinationCode;   // 0x14A
+    u8 oldLicenseeCode;   // 0x14B
+    u8 maskRomVersion;    // 0x14C
+    u8 headerChecksum;    // 0x14D
+    u16 globalChecksum;   // 0x14E - 0x14F
 };
 
 #pragma pack(pop) // Enable padding
@@ -98,8 +98,8 @@ struct romHeader_t {
 
 
 struct sizeDecode_t {
-    u_int8_t size;
-    u_int32_t bytes;
+    u8 size;
+    u32 bytes;
 };
 
 //          00h -  32KByte (no ROM banking)

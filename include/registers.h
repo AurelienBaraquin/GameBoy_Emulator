@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sys/types.h>
+#include <types.h>
 
 #pragma pack(push, 1)
 
@@ -16,52 +16,52 @@ extern struct registers {
 					// Bit 7: "zero"
 				union {
 					struct {
-    					u_int8_t funused:4; // The upper 4 bits are not used (or are used by the system)
-    					u_int8_t fcarry:1;      // Carry flag
-    					u_int8_t fhalf_carry:1;      // Half carry flag
-    					u_int8_t fsubtract:1;      // Subtract flag
-    					u_int8_t fzero:1;      // Zero flag
+    					u8 funused:4; // The upper 4 bits are not used (or are used by the system)
+    					u8 fcarry:1;      // Carry flag
+    					u8 fhalf_carry:1;      // Half carry flag
+    					u8 fsubtract:1;      // Subtract flag
+    					u8 fzero:1;      // Zero flag
 					};
-					u_int8_t f;
+					u8 f;
 				};
-				u_int8_t a;
+				u8 a;
 			};
-			u_int16_t af;
+			u16 af;
 		};
 	};
 	
 	struct {
 		union {
 			struct {
-				u_int8_t c;
-				u_int8_t b;
+				u8 c;
+				u8 b;
 			};
-			u_int16_t bc;
+			u16 bc;
 		};
 	};
 	
 	struct {
 		union {
 			struct {
-				u_int8_t e;
-				u_int8_t d;
+				u8 e;
+				u8 d;
 			};
-			u_int16_t de;
+			u16 de;
 		};
 	};
 	
 	struct {
 		union {
 			struct {
-				u_int8_t l;
-				u_int8_t h;
+				u8 l;
+				u8 h;
 			};
-			u_int16_t hl;
+			u16 hl;
 		};
 	};
 	
-	u_int16_t sp;
-	u_int16_t pc;
+	u16 sp;
+	u16 pc;
 } registers;
 
 #pragma pack(pop)
