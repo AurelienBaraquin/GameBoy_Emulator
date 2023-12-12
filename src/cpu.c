@@ -13,7 +13,7 @@ void step(void)
 
     struct instruction instruction = instructions[byte];
     if (instruction.execute == NULL) {
-        printf("Unimplemented instruction: 0x%02X\n", byte);
+        printf("Unimplemented instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
         exit(1);
     }
 
@@ -24,5 +24,26 @@ void step(void)
 
 void execute(struct instruction instruction)
 {
-    printf("0x%04X: %s\n", registers.pc, instruction.disassembly);
+    printf("0x%04X: %s -> ", registers.pc, instruction.disassembly);
+
+    switch (instruction.len) {
+        case 1:
+            ((void (*)(void))instruction.execute)();
+            break;
+        case 2:
+            ((void (*)(u8))instruction.execute)(readByte(registers.pc + 1));
+            break;
+        case 3:
+            ((void (*)(u16))instruction.execute)(readByte(registers.pc + 1) | (readByte(registers.pc + 2) << 8));
+            break;
+        default:
+            goto error;
+    }
+
+    printf("OK\n");
+    return;
+
+error:
+    printf("ERROR\n");
+    exit(1);
 }
