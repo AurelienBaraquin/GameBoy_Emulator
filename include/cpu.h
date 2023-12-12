@@ -2,11 +2,14 @@
 
 #include <sys/types.h>
 
-extern struct instruction {
+struct instruction {
 	char *disassembly;
 	u_int8_t len;
 	void *execute;
-} const instructions[256];
+};
 
-const struct instruction instructions[256] = {
+void add(u_int8_t *dest, u_int8_t value);
+
+static const struct instruction instructions[256] = {
+
 };

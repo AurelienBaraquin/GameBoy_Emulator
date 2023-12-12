@@ -16,11 +16,11 @@ extern struct registers {
 					// Bit 7: "zero"
 				union {
 					struct {
-    					u_int8_t unused:4; // The upper 4 bits are not used (or are used by the system)
-    					u_int8_t carry:1;      // Carry flag
-    					u_int8_t half_carry:1;      // Half carry flag
-    					u_int8_t subtract:1;      // Subtract flag
-    					u_int8_t zero:1;      // Zero flag
+    					u_int8_t funused:4; // The upper 4 bits are not used (or are used by the system)
+    					u_int8_t fcarry:1;      // Carry flag
+    					u_int8_t fhalf_carry:1;      // Half carry flag
+    					u_int8_t fsubtract:1;      // Subtract flag
+    					u_int8_t fzero:1;      // Zero flag
 					};
 					u_int8_t f;
 				};
