@@ -66,4 +66,11 @@ extern struct registers {
 
 #pragma pack(pop)
 
+#define AF_START 0x01B0
+#define BC_START 0x0013
+#define DE_START 0x00D8
+#define HL_START 0x014D
+#define SP_START 0xFFFE
+#define PC_START 0x0100
+
 void initializeRegisters(void);
