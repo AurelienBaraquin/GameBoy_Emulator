@@ -107,3 +107,16 @@ void xor_h(void);
 void xor_l(void);
 void xor_hl(void);
 void xor_n(u8 value);
+
+void dec_b(void);
+void dec_bc(void);
+void dec_c(void);
+void dec_d(void);
+void dec_de(void);
+void dec_e(void);
+void dec_h(void);
+void dec_hl(void);
+void dec_l(void);
+void dec_hlp(void);
+void dec_sp(void);
+void dec_a(void);

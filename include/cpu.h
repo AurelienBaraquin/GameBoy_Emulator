@@ -248,6 +248,20 @@ static const struct instruction instructions[256] = {
 	[0xAD] = {"XOR L", 1, xor_l},
 	[0xAE] = {"XOR (HL)", 1, xor_hl},
 	[0xEE] = {"XOR n", 2, xor_n},
+	
+	// DEC
+	[0x05] = {"DEC B", 1, dec_b},
+	[0x0B] = {"DEC BC", 1, dec_bc},
+	[0x0D] = {"DEC C", 1, dec_c},
+	[0x15] = {"DEC D", 1, dec_d},
+	[0x1B] = {"DEC DE", 1, dec_de},
+	[0x1D] = {"DEC E", 1, dec_e},
+	[0x25] = {"DEC H", 1, dec_h},
+	[0x2B] = {"DEC HL", 1, dec_hl},
+	[0x2D] = {"DEC L", 1, dec_l},
+	[0x35] = {"DEC (HL)", 1, dec_hlp},
+	[0x3B] = {"DEC SP", 1, dec_sp},
+	[0x3D] = {"DEC A", 1, dec_a},
 };
 
 void step(void);

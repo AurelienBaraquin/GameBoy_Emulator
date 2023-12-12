@@ -147,3 +147,20 @@ void xor_h(void) { xor(registers.h); }
 void xor_l(void) { xor(registers.l); }
 void xor_hl(void) { xor(readByte(registers.hl)); }
 void xor_n(u8 value) { xor(value); }
+
+void dec_b(void) { dec(&registers.b); }
+void dec_bc(void) { registers.bc--; } // NOTE: In 16-bit registers, flags are not affected
+void dec_c(void) { dec(&registers.c); }
+void dec_d(void) { dec(&registers.d); }
+void dec_de(void) { registers.de--; }
+void dec_e(void) { dec(&registers.e); }
+void dec_h(void) { dec(&registers.h); }
+void dec_hl(void) { registers.hl--; }
+void dec_l(void) { dec(&registers.l); }
+void dec_hlp(void) {
+    u8 value = readByte(registers.hl);
+    dec(&value);
+    writeByte(registers.hl, value);
+}
+void dec_sp(void) { registers.sp--; }
+void dec_a(void) { dec(&registers.a); }
