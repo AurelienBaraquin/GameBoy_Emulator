@@ -2,34 +2,33 @@
 #include <registers.h>
 #include <mem.h>
 
-void jp(void)
+void jp(u16 address)
 {
-    u16 address = readWord(registers.pc);
     registers.pc = address;
 }
 
-void jp_nz(void)
+void jp_nz(u16 address)
 {
     if (!registers.fzero)
-        jp();
+        jp(address);
 }
 
-void jp_z(void)
+void jp_z(u16 address)
 {
     if (registers.fzero)
-        jp();
+        jp(address);
 }
 
-void jp_nc(void)
+void jp_nc(u16 address)
 {
     if (!registers.fcarry)
-        jp();
+        jp(address);
 }
 
-void jp_c(void)
+void jp_c(u16 address)
 {
     if (registers.fcarry)
-        jp();
+        jp(address);
 }
 
 void jp_hl(void)

@@ -33,9 +33,9 @@ void sra(u8* reg);
 void sla(u8* reg);
 void swap(u8* reg);
 
-void jp(void);
-void jp_nz(void);
-void jp_z(void);
-void jp_nc(void);
-void jp_c(void);
+void jp(u16 address);
+void jp_nz(u16 address);
+void jp_z(u16 address);
+void jp_nc(u16 address);
+void jp_c(u16 address);
 void jp_hl(void);
