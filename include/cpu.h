@@ -8,6 +8,8 @@ struct instruction {
 	void *execute;
 };
 
+#include <opcode.h>
+
 static const struct instruction cbInstructions[256] = {
 	[0x00] = {"RLC B", 2, rlc_b},
 	[0x01] = {"RLC C", 2, rlc_c},
