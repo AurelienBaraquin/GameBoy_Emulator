@@ -2,7 +2,12 @@
 
 #include <types.h>
 
+// Flow controller -----------------------------------------------------
 void nop(void);
+void halt(void);
+// ----------------------------------------------------------------------
+
+// 8-bit arithmetic ----------------------------------------------------
 void add(u8 *dest, u8 value);
 void addhl(u16 value);
 void adc(u8 value);
@@ -33,6 +38,7 @@ void sra(u8* reg);
 void sla(u8* reg);
 void swap(u8* reg);
 void res(u8 bit, u8* reg);
+// ----------------------------------------------------------------------
 
 // Jumps ---------------------------------------------------------------
 void jp(u16 address);

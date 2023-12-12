@@ -110,6 +110,10 @@ static const struct instruction cbInstructions[256] = {
 
 static const struct instruction instructions[256] = {
 	[0x00] = {"NOP", 1, nop},
+	[0x76] = {"HALT", 1, halt},
+	// [0x10] = {"STOP", 2, stop},
+	// [0xF3] = {"DI", 1, di},
+	// [0xFB] = {"EI", 1, ei},
 
 	// JP
 	[0xC3] = {"JP nn", 3, jp},

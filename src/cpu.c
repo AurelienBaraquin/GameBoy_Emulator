@@ -9,6 +9,9 @@
 
 void step(void)
 {
+    if (halted)
+        return;
+
     u8 byte = readByte(registers.pc);
 
     struct instruction instruction = instructions[byte];
