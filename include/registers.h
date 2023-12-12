@@ -16,11 +16,11 @@ extern struct registers {
 					// Bit 7: "zero"
 				union {
 					struct {
-    					uint8_t unused:4; // The upper 4 bits are not used (or are used by the system)
-    					uint8_t carry:1;      // Carry flag
-    					uint8_t half_carry:1;      // Half carry flag
-    					uint8_t subtract:1;      // Subtract flag
-    					uint8_t zero:1;      // Zero flag
+    					u_int8_t unused:4; // The upper 4 bits are not used (or are used by the system)
+    					u_int8_t carry:1;      // Carry flag
+    					u_int8_t half_carry:1;      // Half carry flag
+    					u_int8_t subtract:1;      // Subtract flag
+    					u_int8_t zero:1;      // Zero flag
 					};
 					u_int8_t f;
 				};
@@ -65,3 +65,5 @@ extern struct registers {
 } registers;
 
 #pragma pack(pop)
+
+void initializeRegisters(void);

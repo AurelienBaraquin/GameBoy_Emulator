@@ -1,5 +1,7 @@
 #include <mem.h>
 #include <rom.h>
+#include <registers.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -25,4 +27,5 @@ int main(int ac, char **av)
     printf("   Entry point:  0x%X\n", romHeader.entryPoint);
 
     srand(time(NULL));
+    initializeRegisters();
 }
