@@ -2,6 +2,8 @@
 
 #include <sys/types.h>
 
+#pragma pack(push, 1)
+
 extern struct registers {
 	struct {
 		union {
@@ -12,7 +14,16 @@ extern struct registers {
 					// Bit 5: "half carry"
 					// Bit 6: "subtraction"
 					// Bit 7: "zero"
-				u_int8_t f;
+				union {
+					struct {
+    					uint8_t unused:4; // The upper 4 bits are not used (or are used by the system)
+    					uint8_t carry:1;      // Carry flag
+    					uint8_t half_carry:1;      // Half carry flag
+    					uint8_t subtract:1;      // Subtract flag
+    					uint8_t zero:1;      // Zero flag
+					};
+					u_int8_t f;
+				};
 				u_int8_t a;
 			};
 			u_int16_t af;
@@ -52,3 +63,5 @@ extern struct registers {
 	u_int16_t sp;
 	u_int16_t pc;
 } registers;
+
+#pragma pack(pop)
