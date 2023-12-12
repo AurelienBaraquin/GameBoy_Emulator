@@ -13,7 +13,7 @@ void step(void)
 
     struct instruction instruction = instructions[byte];
 
-    if (byte == 0xCB) {
+    if (byte == CB_PREFIX) {
         byte = readByte(registers.pc + 1);
         instruction = cbInstructions[byte];
     }
