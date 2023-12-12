@@ -257,3 +257,7 @@ void swap(u8* reg) {
     registers.fsubtract = 0;                      // Reset because it's a SWAP
     registers.fhalf_carry = 0;                    // Reset because it's a SWAP
 }
+
+void res(u8 bit, u8* reg) {
+    *reg &= ~(1 << bit);
+}
