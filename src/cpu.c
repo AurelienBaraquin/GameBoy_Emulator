@@ -17,6 +17,15 @@ void step(void)
         exit(1);
     }
 
+    if (byte == 0xCB) {
+        byte = readByte(registers.pc + 1);
+        instruction = cbInstructions[byte];
+        if (instruction.execute == NULL) {
+            printf("Unimplemented CB instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
+            exit(1);
+        }
+    }
+
     execute(instruction);
 
     registers.pc += instruction.len;
