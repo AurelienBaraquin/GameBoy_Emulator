@@ -7,6 +7,20 @@
 void rlc_b(void);
 void rlc_c(void);
 void rlc_d(void);
+void rlc_e(void);
+void rlc_h(void);
+void rlc_l(void);
+void rlc_hl(void);
+void rlc_a(void);
+
+void rrc_b(void);
+void rrc_c(void);
+void rrc_d(void);
+void rrc_e(void);
+void rrc_h(void);
+void rrc_l(void);
+void rrc_hl(void);
+void rrc_a(void);
 
 void res_0_a(void);
 void res_0_b(void);

@@ -4,9 +4,31 @@
 
 // CB prefix
 
+void rlc_a(void) { rlc(&registers.a); }
 void rlc_b(void) { rlc(&registers.b); }
 void rlc_c(void) { rlc(&registers.c); }
 void rlc_d(void) { rlc(&registers.d); }
+void rlc_e(void) { rlc(&registers.e); }
+void rlc_h(void) { rlc(&registers.h); }
+void rlc_l(void) { rlc(&registers.l); }
+void rlc_hl(void) {
+    u8 value = readByte(registers.hl);
+    rlc(&value);
+    writeByte(registers.hl, value);
+}
+
+void rrc_a(void) { rrc(&registers.a); }
+void rrc_b(void) { rrc(&registers.b); }
+void rrc_c(void) { rrc(&registers.c); }
+void rrc_d(void) { rrc(&registers.d); }
+void rrc_e(void) { rrc(&registers.e); }
+void rrc_h(void) { rrc(&registers.h); }
+void rrc_l(void) { rrc(&registers.l); }
+void rrc_hl(void) {
+    u8 value = readByte(registers.hl);
+    rrc(&value);
+    writeByte(registers.hl, value);
+}
 
 void res_0_a(void) { res(0, &registers.a); }
 void res_0_b(void) { res(0, &registers.b); }
