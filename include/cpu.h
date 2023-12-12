@@ -8,7 +8,9 @@ struct instruction {
 	void *execute;
 };
 
-extern u8 halted : 1;
+#include <stdbool.h>
+
+extern bool halted;
 
 #include <opcode.h>
 
