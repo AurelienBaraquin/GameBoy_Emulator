@@ -19,7 +19,7 @@ void step(void)
     }
 
     if (instruction.execute == NULL) {
-        printf("Unimplemented CB instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
+        printf("Unimplemented instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
         exit(1);
     }
 
