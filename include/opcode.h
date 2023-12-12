@@ -108,6 +108,16 @@ void xor_l(void);
 void xor_hl(void);
 void xor_n(u8 value);
 
+void or_a(void);
+void or_b(void);
+void or_c(void);
+void or_d(void);
+void or_e(void);
+void or_h(void);
+void or_l(void);
+void or_hlp(void);
+void or_n(u8 value);
+
 void dec_b(void);
 void dec_bc(void);
 void dec_c(void);
@@ -120,3 +130,16 @@ void dec_l(void);
 void dec_hlp(void);
 void dec_sp(void);
 void dec_a(void);
+
+void inc_bc(void);
+void inc_b(void);
+void inc_c(void);
+void inc_de(void);
+void inc_d(void);
+void inc_e(void);
+void inc_hl(void);
+void inc_h(void);
+void inc_l(void);
+void inc_sp(void);
+void inc_hlp(void);
+void inc_a(void);

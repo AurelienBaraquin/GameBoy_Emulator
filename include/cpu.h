@@ -254,7 +254,18 @@ static const struct instruction instructions[256] = {
 	[0xAD] = {"XOR L", 1, xor_l},
 	[0xAE] = {"XOR (HL)", 1, xor_hl},
 	[0xEE] = {"XOR n", 2, xor_n},
-	
+
+	// OR
+	[0xB0] = {"OR B", 1, or_b},
+	[0xB1] = {"OR C", 1, or_c},
+	[0xB2] = {"OR D", 1, or_d},
+	[0xB3] = {"OR E", 1, or_e},
+	[0xB4] = {"OR H", 1, or_h},
+	[0xB5] = {"OR L", 1, or_l},
+	[0xB6] = {"OR (HL)", 1, or_hlp},
+	[0xB7] = {"OR A", 1, or_a},
+	[0xF6] = {"OR n", 2, or_n},
+
 	// DEC
 	[0x05] = {"DEC B", 1, dec_b},
 	[0x0B] = {"DEC BC", 1, dec_bc},
@@ -268,6 +279,21 @@ static const struct instruction instructions[256] = {
 	[0x35] = {"DEC (HL)", 1, dec_hlp},
 	[0x3B] = {"DEC SP", 1, dec_sp},
 	[0x3D] = {"DEC A", 1, dec_a},
+
+	// INC
+
+	[0x03] = {"INC BC", 1, inc_bc},
+	[0x04] = {"INC B", 1, inc_b},
+	[0x0C] = {"INC C", 1, inc_c},
+	[0x13] = {"INC DE", 1, inc_de},
+	[0x14] = {"INC D", 1, inc_d},
+	[0x1C] = {"INC E", 1, inc_e},
+	[0x23] = {"INC HL", 1, inc_hl},
+	[0x24] = {"INC H", 1, inc_h},
+	[0x2C] = {"INC L", 1, inc_l},
+	[0x33] = {"INC SP", 1, inc_sp},
+	[0x34] = {"INC (HL)", 1, inc_hlp},
+	[0x3C] = {"INC A", 1, inc_a},
 };
 
 void step(void);

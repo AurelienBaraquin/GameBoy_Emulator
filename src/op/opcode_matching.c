@@ -138,6 +138,8 @@ void res_7_hl(void) {
 
 // Standard
 
+// XOR
+
 void xor_a(void) { xor(registers.a); }
 void xor_b(void) { xor(registers.b); }
 void xor_c(void) { xor(registers.c); }
@@ -147,6 +149,20 @@ void xor_h(void) { xor(registers.h); }
 void xor_l(void) { xor(registers.l); }
 void xor_hl(void) { xor(readByte(registers.hl)); }
 void xor_n(u8 value) { xor(value); }
+
+// OR
+
+void or_a(void) { or(registers.a); }
+void or_b(void) { or(registers.b); }
+void or_c(void) { or(registers.c); }
+void or_d(void) { or(registers.d); }
+void or_e(void) { or(registers.e); }
+void or_h(void) { or(registers.h); }
+void or_l(void) { or(registers.l); }
+void or_hlp(void) { or(readByte(registers.hl)); }
+void or_n(u8 value) { or(value); }
+
+// DEC
 
 void dec_b(void) { dec(&registers.b); }
 void dec_bc(void) { registers.bc--; } // NOTE: In 16-bit registers, flags are not affected
@@ -164,3 +180,22 @@ void dec_hlp(void) {
 }
 void dec_sp(void) { registers.sp--; }
 void dec_a(void) { dec(&registers.a); }
+
+// INC
+
+void inc_bc(void) { registers.bc++; }
+void inc_b(void) { inc(&registers.b); }
+void inc_c(void) { inc(&registers.c); }
+void inc_de(void) { registers.de++; }
+void inc_d(void) { inc(&registers.d); }
+void inc_e(void) { inc(&registers.e); }
+void inc_hl(void) { registers.hl++; }
+void inc_h(void) { inc(&registers.h); }
+void inc_l(void) { inc(&registers.l); }
+void inc_sp(void) { registers.sp++; }
+void inc_hlp(void) {
+    u8 value = readByte(registers.hl);
+    inc(&value);
+    writeByte(registers.hl, value);
+}
+void inc_a(void) { inc(&registers.a); }
