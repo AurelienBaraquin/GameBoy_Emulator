@@ -39,7 +39,6 @@ void adc(u8 value) {
 
 void sub(u8 value) {
     u16 result = (u16)registers.a - (u16)value; // We use a 16-bit result to capture the underflow
-
     registers.fzero = (result & 0xFF) == 0;       // Set if result is zero
     registers.fsubtract = 1;                      // Set because it's a subtraction
     registers.fhalf_carry = (registers.a ^ value ^ (result & 0xFF)) & 0x10; // Set if carry from bit 3

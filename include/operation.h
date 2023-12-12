@@ -32,3 +32,10 @@ void rlc(u8* reg);
 void sra(u8* reg);
 void sla(u8* reg);
 void swap(u8* reg);
+
+void jp(void);
+void jp_nz(void);
+void jp_z(void);
+void jp_nc(void);
+void jp_c(void);
+void jp_hl(void);
