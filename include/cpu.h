@@ -27,19 +27,19 @@ static const struct instruction instructions[256] = {
 	[0xDA] = {"JP C, nn", 3, jp_c},
 	[0xE9] = {"JP (HL)", 1, jp_hl},
 
-	// // JR
-	// [0x18] = {"JR n", 2, jr_n},
-	// [0x20] = {"JR NZ, n", 2, jr_nz_n},
-	// [0x28] = {"JR Z, n", 2, jr_z_n},
-	// [0x30] = {"JR NC, n", 2, jr_nc_n},
-	// [0x38] = {"JR C, n", 2, jr_c_n},
+	// JR
+	[0x18] = {"JR n", 2, jr},
+	[0x20] = {"JR NZ, n", 2, jr_nz},
+	[0x28] = {"JR Z, n", 2, jr_z},
+	[0x30] = {"JR NC, n", 2, jr_nc},
+	[0x38] = {"JR C, n", 2, jr_c},
 
-	// // JPI
-	// [0xCD] = {"CALL nn", 3, call_nn},
-	// [0xC4] = {"CALL NZ, nn", 3, call_nz_nn},
-	// [0xCC] = {"CALL Z, nn", 3, call_z_nn},
-	// [0xD4] = {"CALL NC, nn", 3, call_nc_nn},
-	// [0xDC] = {"CALL C, nn", 3, call_c_nn},
+	// JPI
+	[0xCD] = {"CALL nn", 3, call},
+	[0xC4] = {"CALL NZ, nn", 3, call_nz},
+	[0xCC] = {"CALL Z, nn", 3, call_z},
+	[0xD4] = {"CALL NC, nn", 3, call_nc},
+	[0xDC] = {"CALL C, nn", 3, call_c},
 };
 
 void step(void);

@@ -33,9 +33,23 @@ void sra(u8* reg);
 void sla(u8* reg);
 void swap(u8* reg);
 
+// Jumps ---------------------------------------------------------------
 void jp(u16 address);
 void jp_nz(u16 address);
 void jp_z(u16 address);
 void jp_nc(u16 address);
 void jp_c(u16 address);
 void jp_hl(void);
+
+void jr(u8 value);
+void jr_nz(u8 value);
+void jr_z(u8 value);
+void jr_nc(u8 value);
+void jr_c(u8 value);
+
+void call(u16 address);
+void call_nz(u16 address);
+void call_z(u16 address);
+void call_nc(u16 address);
+void call_c(u16 address);
+// ----------------------------------------------------------------------
