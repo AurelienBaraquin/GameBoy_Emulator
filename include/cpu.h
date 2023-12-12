@@ -266,6 +266,18 @@ static const struct instruction instructions[256] = {
 	[0xB7] = {"OR A", 1, or_a},
 	[0xF6] = {"OR n", 2, or_n},
 
+	// CP
+	[0x2F] = {"CPL", 1, cpl},
+	[0xB8] = {"CP B", 1, cp_b},
+	[0xB9] = {"CP C", 1, cp_c},
+	[0xBA] = {"CP D", 1, cp_d},
+	[0xBB] = {"CP E", 1, cp_e},
+	[0xBC] = {"CP H", 1, cp_h},
+	[0xBD] = {"CP L", 1, cp_l},
+	[0xBE] = {"CP (HL)", 1, cp_hlp},
+	[0xBF] = {"CP A", 1, cp_a},
+	[0xFE] = {"CP n", 2, cp_n},
+
 	// DEC
 	[0x05] = {"DEC B", 1, dec_b},
 	[0x0B] = {"DEC BC", 1, dec_bc},

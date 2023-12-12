@@ -139,7 +139,6 @@ void res_7_hl(void) {
 // Standard
 
 // XOR
-
 void xor_a(void) { xor(registers.a); }
 void xor_b(void) { xor(registers.b); }
 void xor_c(void) { xor(registers.c); }
@@ -151,7 +150,6 @@ void xor_hl(void) { xor(readByte(registers.hl)); }
 void xor_n(u8 value) { xor(value); }
 
 // OR
-
 void or_a(void) { or(registers.a); }
 void or_b(void) { or(registers.b); }
 void or_c(void) { or(registers.c); }
@@ -162,8 +160,19 @@ void or_l(void) { or(registers.l); }
 void or_hlp(void) { or(readByte(registers.hl)); }
 void or_n(u8 value) { or(value); }
 
-// DEC
+// CP
+void cpl(void);
+void cp_b(void) { cp(registers.b); }
+void cp_c(void) { cp(registers.c); }
+void cp_d(void) { cp(registers.d); }
+void cp_e(void) { cp(registers.e); }
+void cp_h(void) { cp(registers.h); }
+void cp_l(void) { cp(registers.l); }
+void cp_hlp(void) { cp(readByte(registers.hl)); }
+void cp_a(void) { cp(registers.a); }
+void cp_n(u8 value) { cp(value); }
 
+// DEC
 void dec_b(void) { dec(&registers.b); }
 void dec_bc(void) { registers.bc--; } // NOTE: In 16-bit registers, flags are not affected
 void dec_c(void) { dec(&registers.c); }
@@ -182,7 +191,6 @@ void dec_sp(void) { registers.sp--; }
 void dec_a(void) { dec(&registers.a); }
 
 // INC
-
 void inc_bc(void) { registers.bc++; }
 void inc_b(void) { inc(&registers.b); }
 void inc_c(void) { inc(&registers.c); }

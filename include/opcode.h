@@ -118,6 +118,17 @@ void or_l(void);
 void or_hlp(void);
 void or_n(u8 value);
 
+void cpl(void);
+void cp_b(void);
+void cp_c(void);
+void cp_d(void);
+void cp_e(void);
+void cp_h(void);
+void cp_l(void);
+void cp_hlp(void);
+void cp_a(void);
+void cp_n(u8 value);
+
 void dec_b(void);
 void dec_bc(void);
 void dec_c(void);
