@@ -42,6 +42,17 @@ static const struct instruction instructions[256] = {
 	[0xCC] = {"CALL Z, nn", 3, call_z},
 	[0xD4] = {"CALL NC, nn", 3, call_nc},
 	[0xDC] = {"CALL C, nn", 3, call_c},
+
+	// XOR
+	[0xAF] = {"XOR A", 1, xor_a},
+	[0xA8] = {"XOR B", 1, xor_b},
+	[0xA9] = {"XOR C", 1, xor_c},
+	[0xAA] = {"XOR D", 1, xor_d},
+	[0xAB] = {"XOR E", 1, xor_e},
+	[0xAC] = {"XOR H", 1, xor_h},
+	[0xAD] = {"XOR L", 1, xor_l},
+	[0xAE] = {"XOR (HL)", 1, xor_hl},
+	[0xEE] = {"XOR n", 2, xor_n},
 };
 
 void step(void);
