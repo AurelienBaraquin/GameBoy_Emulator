@@ -16,4 +16,6 @@ void step(void)
         printf("Unimplemented instruction: 0x%02X\n", byte);
         exit(1);
     }
+    printf("0x%04X: %s\n", registers.pc, instruction.disassembly);
+    registers.pc += instruction.len + 1;
 }

@@ -1,6 +1,7 @@
 #include <mem.h>
 #include <rom.h>
 #include <registers.h>
+#include <cpu.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,4 +29,8 @@ int main(int ac, char **av)
 
     srand(time(NULL));
     initializeRegisters();
+
+    while (1) {
+        step();
+    }
 }
