@@ -2,6 +2,7 @@
 
 #include <types.h>
 
+void nop(void);
 void add(u8 *dest, u8 value);
 void addhl(u16 value);
 void adc(u8 value);

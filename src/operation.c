@@ -1,6 +1,10 @@
 #include <operation.h>
 #include <registers.h>
 
+void nop(void) {
+    // Do nothing
+}
+
 void add(u8 *dest, u8 value) {
     u16 result = (u16)*dest + (u16)value;
 

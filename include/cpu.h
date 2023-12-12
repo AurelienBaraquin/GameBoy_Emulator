@@ -1,6 +1,6 @@
 #pragma once
 
-#include <types.h>
+#include <operation.h>
 
 struct instruction {
 	char *disassembly;
@@ -9,5 +9,7 @@ struct instruction {
 };
 
 static const struct instruction instructions[256] = {
-
+	[0x00] = {"NOP", 0, nop},
 };
+
+void step(void);
