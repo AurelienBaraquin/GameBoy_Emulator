@@ -293,7 +293,6 @@ static const struct instruction instructions[256] = {
 	[0x3D] = {"DEC A", 1, dec_a},
 
 	// INC
-
 	[0x03] = {"INC BC", 1, inc_bc},
 	[0x04] = {"INC B", 1, inc_b},
 	[0x0C] = {"INC C", 1, inc_c},
@@ -306,6 +305,22 @@ static const struct instruction instructions[256] = {
 	[0x33] = {"INC SP", 1, inc_sp},
 	[0x34] = {"INC (HL)", 1, inc_hlp},
 	[0x3C] = {"INC A", 1, inc_a},
+
+	// ADD
+	[0x09] = {"ADD HL, BC", 1, add_hl_bc},
+	[0x19] = {"ADD HL, DE", 1, add_hl_de},
+	[0x29] = {"ADD HL, HL", 1, add_hl_hl},
+	[0x39] = {"ADD HL, SP", 1, add_hl_sp},
+	[0x80] = {"ADD A, B", 1, add_a_b},
+	[0x81] = {"ADD A, C", 1, add_a_c},
+	[0x82] = {"ADD A, D", 1, add_a_d},
+	[0x83] = {"ADD A, E", 1, add_a_e},
+	[0x84] = {"ADD A, H", 1, add_a_h},
+	[0x85] = {"ADD A, L", 1, add_a_l},
+	[0x86] = {"ADD A, (HL)", 1, add_a_hlp},
+	[0x87] = {"ADD A", 1, add_a_a},
+	[0xC6] = {"ADD A, n", 2, add_a_n},
+	[0xE8] = {"ADD SP, n", 2, add_sp_n},
 };
 
 void step(void);

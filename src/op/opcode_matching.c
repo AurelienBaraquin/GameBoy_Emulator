@@ -207,3 +207,19 @@ void inc_hlp(void) {
     writeByte(registers.hl, value);
 }
 void inc_a(void) { inc(&registers.a); }
+
+// ADD
+void add_hl_bc(void) { addhl(registers.bc); }
+void add_hl_de(void) { addhl(registers.de); }
+void add_hl_hl(void) { addhl(registers.hl); }
+void add_hl_sp(void) { addhl(registers.sp); }
+void add_a_b(void) { add(registers.b); }
+void add_a_c(void) { add(registers.c); }
+void add_a_d(void) { add(registers.d); }
+void add_a_e(void) { add(registers.e); }
+void add_a_h(void) { add(registers.h); }
+void add_a_l(void) { add(registers.l); }
+void add_a_hlp(void) { add(readByte(registers.hl)); }
+void add_a_a(void) { add(registers.a); }
+void add_a_n(u8 value) { add(value); }
+void add_sp_n(u8 value) { registers.sp += (u16)value; }

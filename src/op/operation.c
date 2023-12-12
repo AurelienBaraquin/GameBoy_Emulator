@@ -1,15 +1,15 @@
 #include <operation.h>
 #include <registers.h>
 
-void add(u8 *dest, u8 value) {
-    u16 result = (u16)*dest + (u16)value;
+void add(u8 value) {
+    u16 result = (u16)registers.a + (u16)value;
 
     registers.fzero = (result & 0xFF) == 0;       // Set if result is zero
     registers.fsubtract = 0;                      // Reset because it's an addition
-    registers.fhalf_carry = (*dest ^ value ^ (result & 0xFF)) & 0x10; // Set if carry from bit 3
+    registers.fhalf_carry = (registers.a ^ value ^ (result & 0xFF)) & 0x10; // Set if carry from bit 3
     registers.fcarry = result > 0xFF;             // Set if carry from bit 7
 
-    *dest = result & 0xFF;
+    registers.a = result & 0xFF;
 }
 
 void addhl(u16 value) {

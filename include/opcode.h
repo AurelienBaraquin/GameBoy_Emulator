@@ -154,3 +154,18 @@ void inc_l(void);
 void inc_sp(void);
 void inc_hlp(void);
 void inc_a(void);
+
+void add_hl_bc(void);
+void add_hl_de(void);
+void add_hl_hl(void);
+void add_hl_sp(void);
+void add_a_b(void);
+void add_a_c(void);
+void add_a_d(void);
+void add_a_e(void);
+void add_a_h(void);
+void add_a_l(void);
+void add_a_hlp(void);
+void add_a_a(void);
+void add_a_n(u8 value);
+void add_sp_n(u8 value);

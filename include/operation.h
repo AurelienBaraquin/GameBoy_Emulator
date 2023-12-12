@@ -8,7 +8,7 @@ void halt(void);
 // ----------------------------------------------------------------------
 
 // 8-bit arithmetic ----------------------------------------------------
-void add(u8 *dest, u8 value);
+void add(u8 value);
 void addhl(u16 value);
 void adc(u8 value);
 void sub(u8 value);
