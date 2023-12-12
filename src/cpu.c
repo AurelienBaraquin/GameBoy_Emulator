@@ -23,9 +23,12 @@ void step(void)
         exit(1);
     }
 
+    u16 oldPC = registers.pc;
+
     execute(instruction);
 
-    registers.pc += instruction.len;
+    if (registers.pc == oldPC) // Some instructions modify PC directly (JP, JR, CALL, RET, ...) so we don't want to increment it and let the instruction do it
+        registers.pc += instruction.len;
 }
 
 void execute(struct instruction instruction)
