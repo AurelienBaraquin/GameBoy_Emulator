@@ -53,13 +53,8 @@ int loadROM(char *romPath)
         return 1;
     }
 
-    if (romHeader.romType != 0x00) {
-        printf("Error: ROM type not supported (currently only 32KByte ROMs are supported)\n");
-        return 1;
-    }
-
-    rewind(f);
-    if (fread(&cart, fileSize, 1, f) != 1) {
+    rewind(f); // Go back to the beginning of the file
+    if (fread(&cartridge, fileSize, 1, f) != 1) {
         printf("Error reading ROM\n");
         return 1;
     }

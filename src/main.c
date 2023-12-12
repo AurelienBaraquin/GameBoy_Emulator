@@ -21,7 +21,7 @@ int main(int ac, char **av)
     printf("ROM loaded successfully !\n");
     printf("   Name:         %s\n", romHeader.title);
     printf("   Type:         %s\n", romTypeString[romHeader.romType]);
-    printf("   Size:         %d Kb\n", romSize[romHeader.romType].bytes);
+    printf("   Size:         %d Kb\n", romSize[romHeader.romType].bytes / 1024);
     printf("   Entry point:  0x%X\n", romHeader.entryPoint);
 
     srand(time(NULL));

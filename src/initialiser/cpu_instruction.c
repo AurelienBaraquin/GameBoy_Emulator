@@ -3,37 +3,37 @@
 #include <cpu.h>
 
 // 0x00
-void nop(void)
+void _nop(void)
 {
     // Do nothing
 }
 
 // 0x01
-void ld_bc_nn(u_int16_t operand)
+void _ld_bc_nn(u_int16_t operand)
 {
     registers.bc = operand;
 }
 
 // 0x02
-void ld_bcp_a(void)
+void _ld_bcp_a(void)
 {
-    writeByte(registers.bc, registers.a);
+    // writeByte(registers.bc, registers.a);
 }
 
 // 0x03
-void inc_bc(void)
+void _inc_bc(void)
 {
     registers.bc++;
 }
 
 // 0x04
-void inc_b(void)
+void _inc_b(void)
 {
-    registers.b = inc(registers.b);
+    // registers.b = inc(registers.b);
 }
 
 // 0x05
-void dec_b(void)
+void _dec_b(void)
 {
-    registers.b = dec(registers.b);
+    // registers.b = dec(registers.b);
 }
