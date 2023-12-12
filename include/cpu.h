@@ -8,6 +8,8 @@ struct instruction {
 	void *execute;
 };
 
+extern u8 halted : 1;
+
 #include <opcode.h>
 
 #define CB_PREFIX 0xCB
