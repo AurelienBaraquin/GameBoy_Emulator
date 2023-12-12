@@ -169,3 +169,13 @@ void add_a_hlp(void);
 void add_a_a(void);
 void add_a_n(u8 value);
 void add_sp_n(u8 value);
+
+void adc_b(void);
+void adc_c(void);
+void adc_d(void);
+void adc_e(void);
+void adc_h(void);
+void adc_l(void);
+void adc_hlp(void);
+void adc_a(void);
+void adc_n(u8 value);

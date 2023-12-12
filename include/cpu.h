@@ -321,6 +321,17 @@ static const struct instruction instructions[256] = {
 	[0x87] = {"ADD A", 1, add_a_a},
 	[0xC6] = {"ADD A, n", 2, add_a_n},
 	[0xE8] = {"ADD SP, n", 2, add_sp_n},
+
+	// ADC	
+	[0x88] = {"ADC B", 1, adc_b},
+	[0x89] = {"ADC C", 1, adc_c},
+	[0x8A] = {"ADC D", 1, adc_d},
+	[0x8B] = {"ADC E", 1, adc_e},
+	[0x8C] = {"ADC H", 1, adc_h},
+	[0x8D] = {"ADC L", 1, adc_l},
+	[0x8E] = {"ADC (HL)", 1, adc_hlp},
+	[0x8F] = {"ADC A", 1, adc_a},
+	[0xCE] = {"ADC n", 2, adc_n},
 };
 
 void step(void);

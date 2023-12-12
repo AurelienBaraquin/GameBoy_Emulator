@@ -223,3 +223,14 @@ void add_a_hlp(void) { add(readByte(registers.hl)); }
 void add_a_a(void) { add(registers.a); }
 void add_a_n(u8 value) { add(value); }
 void add_sp_n(u8 value) { registers.sp += (u16)value; }
+
+// ADC
+void adc_b(void) { adc(registers.b); }
+void adc_c(void) { adc(registers.c); }
+void adc_d(void) { adc(registers.d); }
+void adc_e(void) { adc(registers.e); }
+void adc_h(void) { adc(registers.h); }
+void adc_l(void) { adc(registers.l); }
+void adc_hlp(void) { adc(readByte(registers.hl)); }
+void adc_a(void) { adc(registers.a); }
+void adc_n(u8 value) { adc(value); }
