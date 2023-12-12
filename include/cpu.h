@@ -115,6 +115,12 @@ static const struct instruction instructions[256] = {
 	// [0xF3] = {"DI", 1, di},
 	// [0xFB] = {"EI", 1, ei},
 
+	// ROTATE
+	[0x07] = {"RLCA", 1, rlca},
+	[0x0F] = {"RRCA", 1, rrca},
+	[0x17] = {"RLA", 1, rla},
+	[0x1F] = {"RRA", 1, rra},
+
 	// JP
 	[0xC3] = {"JP nn", 3, jp},
 	[0xC2] = {"JP NZ, nn", 3, jp_nz},
