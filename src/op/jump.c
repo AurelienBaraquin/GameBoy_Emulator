@@ -95,3 +95,32 @@ void call_c(u16 address)
     if (registers.fcarry)
         call(address);
 }
+
+void ret(void)
+{
+    jp(popWord());
+}
+
+void ret_nz(void)
+{
+    if (!registers.fzero)
+        ret();
+}
+
+void ret_z(void)
+{
+    if (registers.fzero)
+        ret();
+}
+
+void ret_nc(void)
+{
+    if (!registers.fcarry)
+        ret();
+}
+
+void ret_c(void)
+{
+    if (registers.fcarry)
+        ret();
+}

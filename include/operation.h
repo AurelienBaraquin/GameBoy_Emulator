@@ -53,4 +53,10 @@ void call_nz(u16 address);
 void call_z(u16 address);
 void call_nc(u16 address);
 void call_c(u16 address);
+
+void ret(void);
+void ret_nz(void);
+void ret_z(void);
+void ret_nc(void);
+void ret_c(void);
 // ----------------------------------------------------------------------

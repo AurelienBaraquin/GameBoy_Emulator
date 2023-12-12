@@ -129,6 +129,13 @@ static const struct instruction instructions[256] = {
 	[0xD4] = {"CALL NC, nn", 3, call_nc},
 	[0xDC] = {"CALL C, nn", 3, call_c},
 
+	// RET
+	[0xC9] = {"RET", 1, ret},
+	[0xC0] = {"RET NZ", 1, ret_nz},
+	[0xC8] = {"RET Z", 1, ret_z},
+	[0xD0] = {"RET NC", 1, ret_nc},
+	[0xD8] = {"RET C", 1, ret_c},
+
 	// XOR
 	[0xAF] = {"XOR A", 1, xor_a},
 	[0xA8] = {"XOR B", 1, xor_b},
