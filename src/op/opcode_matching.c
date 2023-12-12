@@ -234,3 +234,14 @@ void adc_l(void) { adc(registers.l); }
 void adc_hlp(void) { adc(readByte(registers.hl)); }
 void adc_a(void) { adc(registers.a); }
 void adc_n(u8 value) { adc(value); }
+
+// SUB
+void sub_b(void) { sub(registers.b); }
+void sub_c(void) { sub(registers.c); }
+void sub_d(void) { sub(registers.d); }
+void sub_e(void) { sub(registers.e); }
+void sub_h(void) { sub(registers.h); }
+void sub_l(void) { sub(registers.l); }
+void sub_hlp(void) { sub(readByte(registers.hl)); }
+void sub_a(void) { sub(registers.a); }
+void sub_n(u8 value) { sub(value); }

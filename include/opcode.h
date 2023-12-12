@@ -179,3 +179,13 @@ void adc_l(void);
 void adc_hlp(void);
 void adc_a(void);
 void adc_n(u8 value);
+
+void sub_b(void);
+void sub_c(void);
+void sub_d(void);
+void sub_e(void);
+void sub_h(void);
+void sub_l(void);
+void sub_hlp(void);
+void sub_a(void);
+void sub_n(u8 value);
