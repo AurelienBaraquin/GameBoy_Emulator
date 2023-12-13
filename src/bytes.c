@@ -91,7 +91,7 @@ u8 readHRAM(u16 address) {
 }
 
 u8 readInterruptEnableRegister(void) {
-    return registers.ie;
+    return gbregisters.IE;
 }
 
 void writeByte(u16 address, u8 value) {
@@ -160,7 +160,7 @@ void writeHRAM(u16 address, u8 value) {
 }
 
 void writeInterruptEnableRegister(u8 value) {
-    registers.ie = value;
+    gbregisters.IE = value;
 }
 
 u16 readWord(u16 address) {
