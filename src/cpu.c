@@ -29,12 +29,10 @@ void step(void)
         exit(1);
     }
 
-    u16 oldPC = registers.pc;
+    registers.pc += instruction.len;
 
+    printf("(0x%02X) ", byte);
     execute(instruction);
-
-    if (registers.pc == oldPC) // Some instructions modify PC directly (JP, JR, CALL, RET, ...) so we don't want to increment it and let the instruction do it
-        registers.pc += instruction.len;
 }
 
 void execute(struct instruction instruction)
@@ -46,10 +44,10 @@ void execute(struct instruction instruction)
             ((void (*)(void))instruction.execute)();
             break;
         case 2:
-            ((void (*)(u8))instruction.execute)(readByte(registers.pc + 1));
+            ((void (*)(u8))instruction.execute)(readByte(registers.pc - 1));
             break;
         case 3:
-            ((void (*)(u16))instruction.execute)(readByte(registers.pc + 1) | (readByte(registers.pc + 2) << 8));
+            ((void (*)(u16))instruction.execute)(readByte(registers.pc - 2) | (readByte(registers.pc - 1) << 8));
             break;
         default:
             goto error;

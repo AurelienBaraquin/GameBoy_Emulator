@@ -71,6 +71,6 @@ extern struct registers {
 #define DE_START 0x00D8
 #define HL_START 0x014D
 #define SP_START 0xFFFE
-#define PC_START 0x0000
+#define PC_START 0x0100
 
 void initializeRegisters(void);
