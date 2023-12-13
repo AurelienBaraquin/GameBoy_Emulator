@@ -7,3 +7,11 @@ void nop(void) {
 void halt(void) {
     halted = 1;
 }
+
+void di(void) {
+    interruptsEnabled = 0;
+}
+
+void ei(void) {
+    interruptsEnabled = 1;
+}

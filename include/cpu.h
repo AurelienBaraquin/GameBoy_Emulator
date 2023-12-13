@@ -110,11 +110,12 @@ static const struct instruction cbInstructions[256] = {
 };
 
 static const struct instruction instructions[256] = {
+	// FLOW CONTROLLER
 	[0x00] = {"NOP", 1, nop},
 	[0x76] = {"HALT", 1, halt},
 	// [0x10] = {"STOP", 2, stop},
-	// [0xF3] = {"DI", 1, di},
-	// [0xFB] = {"EI", 1, ei},
+	[0xF3] = {"DI", 1, di},
+	[0xFB] = {"EI", 1, ei},
 
 	// ROTATE
 	[0x07] = {"RLCA", 1, rlca},
