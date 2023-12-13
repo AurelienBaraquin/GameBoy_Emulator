@@ -11,6 +11,7 @@ struct instruction {
 #include <stdbool.h>
 
 extern bool halted;
+extern bool interruptsEnabled;
 
 #include <opcode.h>
 
