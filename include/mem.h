@@ -7,13 +7,13 @@ extern const u8 ioReset[0x100]; // Initial values for IO registers
 extern struct memoryBus {
     union {
         struct {
-            u8 cartridge[0x8000]; // 2MB of cartridge ROM
-            u8 sram[0x2000]; // 8KB of SRAM
-            u8 io[0x100]; // IO registers
-            u8 vram[0x2000]; // 8KB of video RAM
-            u8 oam[0x100]; // 256 bytes of OAM
-            u8 wram[0x2000]; // 8KB of working RAM
-            u8 hram[0x80]; // 128 bytes of high RAM
+            u8 rom[0x8000];          // 32KB ROM
+            u8 vram[0x2000];         // 8KB Video RAM
+            u8 externalRAM[0x2000];  // 8KB External RAM (Cartridge RAM)
+            u8 workingRAM[0x2000];   // 8KB Working RAM
+            u8 oam[0xA0];            // 160 bytes Object Attribute Memory
+            u8 ioRegisters[0x80];    // 128 bytes I/O Registers
+            u8 hram[0x7F];           // 127 bytes High RAM
         };
         u8 memory[0xFFFF + 0x01]; // 64KB of memory
     };

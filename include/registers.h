@@ -62,6 +62,7 @@ extern struct registers {
 	
 	u16 sp;
 	u16 pc;
+	u8 ie;
 } registers;
 
 #pragma pack(pop)
@@ -72,5 +73,6 @@ extern struct registers {
 #define HL_START 0x014D
 #define SP_START 0xFFFE
 #define PC_START 0x0100
+#define IE_START 0x00FF
 
 void initializeRegisters(void);

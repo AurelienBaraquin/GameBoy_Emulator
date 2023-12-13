@@ -11,4 +11,5 @@ void initializeRegisters(void)
     registers.hl = HL_START;
     registers.sp = SP_START;
     registers.pc = PC_START;
+    registers.ie = IE_START;
 }
