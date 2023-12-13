@@ -42,28 +42,28 @@ void jr(s8 value)
     registers.pc += (u16)value;
 }
 
-void jr_nz(u8 value)
+void jr_nz(s8 value)
 {
     if (!registers.fzero)
-        jr((s8)value);
+        jr(value);
 }
 
-void jr_z(u8 value)
+void jr_z(s8 value)
 {
     if (registers.fzero)
-        jr((s8)value);
+        jr(value);
 }
 
-void jr_nc(u8 value)
+void jr_nc(s8 value)
 {
     if (!registers.fcarry)
-        jr((s8)value);
+        jr(value);
 }
 
-void jr_c(u8 value)
+void jr_c(s8 value)
 {
     if (registers.fcarry)
-        jr((s8)value);
+        jr(value);
 }
 
 void call(u16 address)
