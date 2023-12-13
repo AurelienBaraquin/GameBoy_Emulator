@@ -15,7 +15,7 @@ extern struct memoryBus {
             u8 ioRegisters[0x80];    // 128 bytes I/O Registers
             u8 hram[0x7F];           // 127 bytes High RAM
         };
-        u8 memory[0xFFFF + 0x01]; // 64KB of memory
+        u8 memory[0xFFFF]; // 64KB of memory
     };
 } memoryBus;
 

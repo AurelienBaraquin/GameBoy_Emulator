@@ -37,33 +37,33 @@ void jp_hl(void)
     registers.pc = registers.hl;
 }
 
-void jr(u8 value)
+void jr(s8 value)
 {
-    registers.pc += value;
+    registers.pc += (u16)value;
 }
 
 void jr_nz(u8 value)
 {
     if (!registers.fzero)
-        jr(value);
+        jr((s8)value);
 }
 
 void jr_z(u8 value)
 {
     if (registers.fzero)
-        jr(value);
+        jr((s8)value);
 }
 
 void jr_nc(u8 value)
 {
     if (!registers.fcarry)
-        jr(value);
+        jr((s8)value);
 }
 
 void jr_c(u8 value)
 {
     if (registers.fcarry)
-        jr(value);
+        jr((s8)value);
 }
 
 void call(u16 address)

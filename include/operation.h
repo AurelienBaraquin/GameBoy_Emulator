@@ -48,7 +48,7 @@ void jp_nc(u16 address);
 void jp_c(u16 address);
 void jp_hl(void);
 
-void jr(u8 value);
+void jr(s8 value);
 void jr_nz(u8 value);
 void jr_z(u8 value);
 void jr_nc(u8 value);
