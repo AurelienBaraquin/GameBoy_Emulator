@@ -29,6 +29,7 @@ int main(int ac, char **av)
 
     srand(time(NULL));
     initializeRegisters();
+    initializeGBRegisters();
 
     while (1) {
         step();

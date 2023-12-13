@@ -122,3 +122,4 @@ extern struct gbregisters {
 #define IE_START 0x00FF
 
 void initializeRegisters(void);
+void initializeGBRegisters(void);
