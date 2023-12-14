@@ -18,6 +18,8 @@ void initializeRegisters(void)
     registers.l = 0x4D;
     registers.sp = 0xFFFE;
     registers.pc = 0x0100;
+
+    initializeGBRegisters();
 }
 
 struct gbregisters gbregisters;

@@ -24,6 +24,8 @@ int loadROM(char *romPath)
         return 1;
     }
 
+    printf("Loading ROM %s...\n", romPath);
+
     // Get file size
     struct stat st;
     stat(romPath, &st);
@@ -60,6 +62,12 @@ int loadROM(char *romPath)
     }
 
     fclose(f);
+
+    printf("ROM loaded successfully !\n");
+    printf("   Name:         %s\n", romHeader.title);
+    printf("   Type:         %s\n", romTypeString[romHeader.romType]);
+    printf("   Size:         %d Kb\n", romSize[romHeader.romType].bytes / 1024);
+    printf("   Entry point:  0x%X\n", romHeader.entryPoint);
 
     return 0;
 }

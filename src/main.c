@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 int main(int ac, char **av)
 {
@@ -14,24 +15,14 @@ int main(int ac, char **av)
         return 1;
     }
 
-    printf("Loading ROM %s...\n", av[1]);
-
-    if (loadROM(av[1]) != 0) {
-        printf("Error loading ROM\n");
+    if (loadROM(av[1]) != 0)
         return 1;
-    }
-
-    printf("ROM loaded successfully !\n");
-    printf("   Name:         %s\n", romHeader.title);
-    printf("   Type:         %s\n", romTypeString[romHeader.romType]);
-    printf("   Size:         %d Kb\n", romSize[romHeader.romType].bytes / 1024);
-    printf("   Entry point:  0x%X\n", romHeader.entryPoint);
 
     srand(time(NULL));
     initializeRegisters();
-    initializeGBRegisters();
 
     while (1) {
         step();
+        usleep(10000);
     }
 }
