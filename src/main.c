@@ -10,10 +10,19 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#define NB_SCANLINES 154
+#define NB_CYCLES_PER_SCANLINE 456
+#define CPU_CYCLES_PER_FRAME (NB_SCANLINES * NB_CYCLES_PER_SCANLINE)
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
 void cpu(void)
 {
     while (1) {
-        cpu_step();
+        pthread_mutex_lock(&mutex);
+        for (int i = 0; i < CPU_CYCLES_PER_FRAME; i++)
+            cpu_step();
+        pthread_mutex_unlock(&mutex);
     }
 }
 
@@ -32,10 +41,13 @@ int main(int ac, char **av)
     initializeMemory();
     initializeRaylib();
 
+    SetTargetFPS(60);
+
     pthread_t cpuThread;
     pthread_create(&cpuThread, NULL, (void *)cpu, NULL);
 
     while (!WindowShouldClose()) {
+        pthread_mutex_lock(&mutex);
 
         if (IsKeyPressed(KEY_SPACE))
             break;
@@ -43,6 +55,8 @@ int main(int ac, char **av)
         BeginDrawing(); {
             ClearBackground(BLACK);
         } EndDrawing();
+
+        pthread_mutex_unlock(&mutex);
     }
 
     CloseWindow();
