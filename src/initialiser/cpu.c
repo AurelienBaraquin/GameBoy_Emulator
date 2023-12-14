@@ -1,4 +1,4 @@
 #include <cpu.h>
 
 bool halted = 0;
-bool interruptsEnabled = 1;
+bool ime = 1;

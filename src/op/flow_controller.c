@@ -9,9 +9,9 @@ void halt(void) {
 }
 
 void di(void) {
-    interruptsEnabled = 0;
+    ime = 0;
 }
 
 void ei(void) {
-    interruptsEnabled = 1;
+    ime = 1;
 }
