@@ -23,7 +23,6 @@ void frame(void)
             // gpu_step(i, j);
         }
     }
-    printf("Frame\n");
 }
 
 int main(int ac, char **av)

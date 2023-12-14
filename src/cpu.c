@@ -1,14 +1,22 @@
 #include <cpu.h>
 #include <mem.h>
 #include <registers.h>
+#include <stack.h>
+#include <interrupt.h>
 
 #include <stdio.h>
 #include <stdlib.h>
+
+void handleInterrupts(void);
 
 // Global CPU
 
 u8 cpu_step(void)
 {
+    if ((ime || halted) && (gbregisters.IF & gbregisters.IE & 0x1F)) {
+        handleInterrupts();
+    }
+
     if (halted)
         return 1;
 
@@ -57,4 +65,32 @@ void execute(struct instruction instruction)
 error:
     printf("ERROR\n");
     exit(1);
+}
+
+void handleInterrupts(void)
+{
+    halted = 0;
+
+    if (!ime)
+        return;
+
+    ime = 0;
+    pushWord(registers.pc);
+
+    if (gbregisters.IF & gbregisters.IE & VBLANK_INTR) {
+        registers.pc = VBLANK_INTR_ADDR;
+        gbregisters.IF ^= VBLANK_INTR;
+    } else if (gbregisters.IF & gbregisters.IE & LCDC_INTR) {
+        registers.pc = LCDC_INTR_ADDR;
+        gbregisters.IF ^= LCDC_INTR;
+    } else if (gbregisters.IF & gbregisters.IE & TIMER_INTR) {
+        registers.pc = TIMER_INTR_ADDR;
+        gbregisters.IF ^= TIMER_INTR;
+    } else if (gbregisters.IF & gbregisters.IE & SERIAL_INTR) {
+        registers.pc = SERIAL_INTR_ADDR;
+        gbregisters.IF ^= SERIAL_INTR;
+    } else if (gbregisters.IF & gbregisters.IE & CONTROL_INTR) {
+        registers.pc = CONTROL_INTR_ADDR;
+        gbregisters.IF ^= CONTROL_INTR;
+    }
 }
