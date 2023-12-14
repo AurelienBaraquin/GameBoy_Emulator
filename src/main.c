@@ -2,13 +2,20 @@
 #include <rom.h>
 #include <registers.h>
 #include <cpu.h>
-
-#include <raylib.h>
+#include <gpu.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <pthread.h>
+
+void cpu(void)
+{
+    while (1) {
+        cpu_step();
+    }
+}
 
 int main(int ac, char **av)
 {
@@ -23,10 +30,23 @@ int main(int ac, char **av)
     srand(time(NULL));
     initializeRegisters();
     initializeMemory();
-    // initializeRaylib();
+    initializeRaylib();
 
-    while (1) {
-        cpu_step();
-        usleep(10000);
+    pthread_t cpuThread;
+    pthread_create(&cpuThread, NULL, (void *)cpu, NULL);
+
+    while (!WindowShouldClose()) {
+
+        if (IsKeyPressed(KEY_SPACE))
+            break;
+
+        BeginDrawing(); {
+            ClearBackground(BLACK);
+        } EndDrawing();
     }
+
+    CloseWindow();
+    pthread_cancel(cpuThread);
+
+    return 0;
 }
