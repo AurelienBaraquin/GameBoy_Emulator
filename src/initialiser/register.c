@@ -33,12 +33,18 @@ void initializeGBRegisters(void)
     gbregisters.tac_enable = 0;
     gbregisters.tac_rate = 0;
 
+    gbregisters.P1 = 0x00;
+    gbregisters.SB = 0x00;
+    gbregisters.SC = 0x00;
+    gbregisters.DIV = 0x00;
     gbregisters.TIMA = 0x00;
     gbregisters.TMA = 0x00;
     gbregisters.TAC = 0x00;
+    gbregisters.IF = 0x00;
     gbregisters.NR10 = 0x80;
     gbregisters.NR11 = 0xBF;
     gbregisters.NR12 = 0xF3;
+    gbregisters.NR13 = 0xFF;
     gbregisters.NR14 = 0xBF;
     gbregisters.NR21 = 0x3F;
     gbregisters.NR22 = 0x00;
@@ -55,9 +61,12 @@ void initializeGBRegisters(void)
     gbregisters.NR51 = 0xF3;
     gbregisters.NR52 = 0xF1;
     gbregisters.LCDC = 0x91;
-    gbregisters.SCX = 0x00;
+    gbregisters.STAT = 0x85;
     gbregisters.SCY = 0x00;
+    gbregisters.SCX = 0x00;
+    gbregisters.LY = 0x00;
     gbregisters.LYC = 0x00;
+    gbregisters.DMA = 0x00;
     gbregisters.BGP = 0xFC;
     gbregisters.OBP0 = 0xFF;
     gbregisters.OBP1 = 0xFF;

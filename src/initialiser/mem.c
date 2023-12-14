@@ -1,4 +1,5 @@
 #include "mem.h"
+#include <string.h>
 
 const u8 ioReset[0x100] = {
 	0x0F, 0x00, 0x7C, 0xFF, 0x00, 0x00, 0x00, 0xF8, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x01,
@@ -20,3 +21,8 @@ const u8 ioReset[0x100] = {
 };
 
 struct memoryBus memoryBus = {0};
+
+void initializeMemory(void)
+{
+	memcpy(memoryBus.ioRegisters, ioReset, sizeof(ioReset));
+}

@@ -3,6 +3,8 @@
 #include <registers.h>
 #include <cpu.h>
 
+#include <raylib.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -20,6 +22,8 @@ int main(int ac, char **av)
 
     srand(time(NULL));
     initializeRegisters();
+    initializeMemory();
+    // initializeRaylib();
 
     while (1) {
         cpu_step();

@@ -64,6 +64,17 @@ extern struct registers {
 	u16 pc;
 } registers;
 
+// u8 R_P1;    u8 R_SB;    u8 R_SC;    u8 R_DIV;
+// u8 R_TIMA;  u8 R_TMA;   u8 R_TAC;   u8 R_IF;
+// u8 R_NR10;  u8 R_NR11;  u8 R_NR12;  u8 R_NR14;
+// u8 R_NR21;  u8 R_NR22;  u8 R_NR24;  u8 R_NR30;
+// u8 R_NR31;  u8 R_NR32;  u8 R_NR33;  u8 R_NR41;
+// u8 R_NR42;  u8 R_NR43;  u8 R_NR44;  u8 R_NR50;
+// u8 R_NR51;  u8 R_NR52;  u8 R_LCDC;  u8 R_STAT;
+// u8 R_SCY;   u8 R_SCX;   u8 R_LY;    u8 R_LYC;
+// u8 R_DMA;   u8 R_BGP;   u8 R_OBP0;  u8 R_OBP1;
+// u8 R_WY;    u8 R_WX;    u8 R_IE;
+
 extern struct gbregisters {
     u32 cpu_count;   // Counts the number of CPU cycles
     u32 lcd_count;   // Counts the number of LCD cycles for screen refresh
@@ -72,20 +83,28 @@ extern struct gbregisters {
     u8 tac_enable;   // Timer Controller (TAC) enable flag
     u8 tac_rate;     // Timer Controller (TAC) rate selector
 
+	u8 P1;           // Joypad, controls which buttons are pressed
+	u8 SB;           // Serial Transfer Data, data to be sent or received over serial port
+	u8 SC;           // Serial Transfer Control, controls serial port operation
+	u8 DIV;          // Divider Register, increments at a constant rate
+
     u8 TIMA;         // Timer Counter, increments at a rate specified by TAC
     u8 TMA;          // Timer Modulo, value loaded into TIMA when it overflows
     u8 TAC;          // Timer Controller, controls TIMA and its increment rate
+
+	u8 IF;           // Interrupt Flag, flags which interrupts are requested
 
     // Sound registers (NR10, NR11, NR12, NR13, NR14, NR21, NR22, NR23, NR24, NR30, NR31, NR32, NR33, NR41, NR42, NR43, NR44, NR50, NR51, NR52)
     // control different aspects of sound generation and playback
 	u8 NR10;
 	u8 NR11;
 	u8 NR12;
-	u8 NR13;
+
+	u8 NR13; // Sound Mode 1 Register, Low 8 bits of frequency
+
 	u8 NR14;
 	u8 NR21;
 	u8 NR22;
-	u8 NR23;
 	u8 NR24;
 	u8 NR30;
 	u8 NR31;
@@ -100,9 +119,12 @@ extern struct gbregisters {
 	u8 NR52;
 
     u8 LCDC;         // LCD Control, controls the operation of the LCD
+	u8 STAT;         // LCDC Status, provides information about the current LCD status
     u8 SCY;          // Scroll Y, vertical scroll position of background
     u8 SCX;          // Scroll X, horizontal scroll position of background
+	u8 LY;           // LCDC Y-Coordinate, indicates the current vertical line being drawn
     u8 LYC;          // LY Compare, compared with current scanline (LY)
+	u8 DMA;          // DMA Transfer and Start Address, used to initiate DMA transfer
     u8 BGP;          // Background Palette, defines colors for background
     u8 OBP0;         // Object Palette 0, defines colors for sprites
     u8 OBP1;         // Object Palette 1, defines colors for sprites
