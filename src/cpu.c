@@ -7,7 +7,7 @@
 
 // Global CPU
 
-void step(void)
+void cpu_step(void)
 {
     if (halted)
         return;

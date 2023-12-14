@@ -22,7 +22,7 @@ int main(int ac, char **av)
     initializeRegisters();
 
     while (1) {
-        step();
+        cpu_step();
         usleep(10000);
     }
 }

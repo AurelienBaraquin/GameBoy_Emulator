@@ -347,5 +347,5 @@ static const struct instruction instructions[256] = {
 	[0xD6] = {"SUB n", 2, sub_n},
 };
 
-void step(void);
+void cpu_step(void);
 void execute(struct instruction instruction);
