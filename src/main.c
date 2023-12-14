@@ -10,20 +10,20 @@
 #include <unistd.h>
 #include <pthread.h>
 
-#define NB_SCANLINES 154
-#define NB_CYCLES_PER_SCANLINE 456
+#define SCANLINES 154
+#define CYCLES_PER_SCANLINE 456
 #define CPU_CYCLES_PER_FRAME (NB_SCANLINES * NB_CYCLES_PER_SCANLINE)
 
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-
-void cpu(void)
+void frame(void)
 {
-    while (1) {
-        pthread_mutex_lock(&mutex);
-        for (int i = 0; i < CPU_CYCLES_PER_FRAME; i++)
-            cpu_step();
-        pthread_mutex_unlock(&mutex);
+    u8 cycle = 0;
+    for (int i = 0; i < SCANLINES; ++i) {
+        for (int j = 0; j < CYCLES_PER_SCANLINE; j += cycle) {
+            cycle = cpu_step();
+            // gpu_step(i, j);
+        }
     }
+    printf("Frame\n");
 }
 
 int main(int ac, char **av)
@@ -41,13 +41,8 @@ int main(int ac, char **av)
     initializeMemory();
     initializeRaylib();
 
-    SetTargetFPS(60);
-
-    pthread_t cpuThread;
-    pthread_create(&cpuThread, NULL, (void *)cpu, NULL);
-
     while (!WindowShouldClose()) {
-        pthread_mutex_lock(&mutex);
+        frame();
 
         if (IsKeyPressed(KEY_SPACE))
             break;
@@ -55,12 +50,9 @@ int main(int ac, char **av)
         BeginDrawing(); {
             ClearBackground(BLACK);
         } EndDrawing();
-
-        pthread_mutex_unlock(&mutex);
     }
 
     CloseWindow();
-    pthread_cancel(cpuThread);
 
     return 0;
 }

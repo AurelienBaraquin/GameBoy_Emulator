@@ -7,10 +7,10 @@
 
 // Global CPU
 
-void cpu_step(void)
+u8 cpu_step(void)
 {
     if (halted)
-        return;
+        return 1;
 
     u8 byte = readByte(registers.pc);
 
@@ -31,14 +31,13 @@ void cpu_step(void)
 
     registers.pc += instruction.len;
 
-    printf("(0x%02X) ", byte);
     execute(instruction);
+
+    return op_cycles[byte];
 }
 
 void execute(struct instruction instruction)
 {
-    printf("0x%04X: %s -> ", registers.pc, instruction.disassembly);
-
     switch (instruction.len) {
         case 1:
             ((void (*)(void))instruction.execute)();
@@ -53,7 +52,6 @@ void execute(struct instruction instruction)
             goto error;
     }
 
-    printf("OK\n");
     return;
 
 error:
