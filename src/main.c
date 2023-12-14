@@ -3,6 +3,7 @@
 #include <registers.h>
 #include <cpu.h>
 #include <gpu.h>
+#include <interrupt.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,8 +44,12 @@ int main(int ac, char **av)
     while (!WindowShouldClose()) {
         frame();
 
-        if (IsKeyPressed(KEY_SPACE))
-            break;
+        for (int i = 0; i < (int)(sizeof(keys) / sizeof(keys[0])); ++i) {
+            if (IsKeyDown(keys[i]))
+                SetKeyStateGB(i, 0);
+            else if (IsKeyUp(keys[i]))
+                SetKeyStateGB(i, 1);
+        }
 
         BeginDrawing(); {
             ClearBackground(BLACK);

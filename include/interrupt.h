@@ -17,13 +17,20 @@
 
 #include <raylib.h>
 
-unsigned short keys[] = {
+#define INPUT_P1            0xFF00
+#define INPUT_KEYS          0x0F
+#define INPUT_P14           0x10
+#define INPUT_P15           0x20
+
+static const unsigned short keys[] = {
     KEY_RIGHT, // GB_RIGHT
     KEY_LEFT, // GB_LEFT
     KEY_UP, // GB_UP
     KEY_DOWN, // GB_DOWN
-    KEY_Z, // GB_A
+    KEY_W, // GB_A
     KEY_X, // GB_B
     KEY_RIGHT_SHIFT, // GB_SELECT
     KEY_ENTER, // GB_START
 };
+
+void SetKeyStateGB(u8 key, u8 state);
