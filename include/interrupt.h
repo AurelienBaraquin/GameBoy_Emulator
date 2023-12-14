@@ -14,3 +14,16 @@
 #define TIMER_INTR_ADDR     0x0050
 #define SERIAL_INTR_ADDR    0x0058
 #define CONTROL_INTR_ADDR   0x0060
+
+#include <raylib.h>
+
+unsigned short keys[] = {
+    KEY_RIGHT, // GB_RIGHT
+    KEY_LEFT, // GB_LEFT
+    KEY_UP, // GB_UP
+    KEY_DOWN, // GB_DOWN
+    KEY_Z, // GB_A
+    KEY_X, // GB_B
+    KEY_RIGHT_SHIFT, // GB_SELECT
+    KEY_ENTER, // GB_START
+};
