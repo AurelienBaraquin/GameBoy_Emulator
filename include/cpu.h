@@ -379,6 +379,28 @@ static const struct instruction instructions[256] = {
 	[0x96] = {"SUB (HL)", 1, sub_hlp},
 	[0x97] = {"SUB A", 1, sub_a},
 	[0xD6] = {"SUB n", 2, sub_n},
+
+	// RST	
+	[0xC7] = {"RST 0x00", 1, rst_00},
+	[0xCF] = {"RST 0x08", 1, rst_08},
+	[0xD7] = {"RST 0x10", 1, rst_10},
+	[0xDF] = {"RST 0x18", 1, rst_18},
+	[0xE7] = {"RST 0x20", 1, rst_20},
+	[0xEF] = {"RST 0x28", 1, rst_28},
+	[0xF7] = {"RST 0x30", 1, rst_30},
+	[0xFF] = {"RST 0x38", 1, rst_38},
+	
+	// POP
+	[0xC1] = {"POP BC", 1, pop_bc},
+	[0xD1] = {"POP DE", 1, pop_de},
+	[0xE1] = {"POP HL", 1, pop_hl},
+	[0xF1] = {"POP AF", 1, pop_af},
+
+	// PUSH
+	[0xC5] = {"PUSH BC", 1, push_bc},
+	[0xD5] = {"PUSH DE", 1, push_de},
+	[0xE5] = {"PUSH HL", 1, push_hl},
+	[0xF5] = {"PUSH AF", 1, push_af},
 };
 
 u8 cpu_step(void);

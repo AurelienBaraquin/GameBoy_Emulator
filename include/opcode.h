@@ -217,3 +217,22 @@ void sub_l(void);
 void sub_hlp(void);
 void sub_a(void);
 void sub_n(u8 value);
+
+void rst_00(void);
+void rst_08(void);
+void rst_10(void);
+void rst_18(void);
+void rst_20(void);
+void rst_28(void);
+void rst_30(void);
+void rst_38(void);
+
+void pop_bc(void);
+void pop_de(void);
+void pop_hl(void);
+void pop_af(void);
+
+void push_bc(void);
+void push_de(void);
+void push_hl(void);
+void push_af(void);

@@ -69,7 +69,7 @@ int main(int ac, char **av)
             DrawText(TextFormat("Registre SP: %04X", registers.sp), 200, 170, 15, WHITE);
             DrawText(TextFormat("Registre PC: %04X", registers.pc), 200, 190, 15, WHITE);
         } EndDrawing();
-        usleep(500000);
+        usleep(1000);
     }
 
     CloseWindow();

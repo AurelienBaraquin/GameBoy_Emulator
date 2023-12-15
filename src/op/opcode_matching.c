@@ -1,6 +1,7 @@
 #include <cpu.h>
 #include <registers.h>
 #include <mem.h>
+#include <stack.h>
 
 // CB prefix
 
@@ -283,3 +284,49 @@ void sub_l(void) { sub(registers.l); }
 void sub_hlp(void) { sub(readByte(registers.hl)); }
 void sub_a(void) { sub(registers.a); }
 void sub_n(u8 value) { sub(value); }
+
+// RST
+void rst_00(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x00;
+}
+void rst_08(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x08;
+}
+void rst_10(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x10;
+}
+void rst_18(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x18;
+}
+void rst_20(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x20;
+}
+void rst_28(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x28;
+}
+void rst_30(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x30;
+}
+void rst_38(void) {
+    pushWord(registers.pc);
+    registers.pc = 0x38;
+}
+
+// POP
+void pop_bc(void) { registers.bc = popWord(); }
+void pop_de(void) { registers.de = popWord(); }
+void pop_hl(void) { registers.hl = popWord(); }
+void pop_af(void) { registers.af = popWord(); }
+
+// PUSH
+void push_bc(void) { pushWord(registers.bc); }
+void push_de(void) { pushWord(registers.de); }
+void push_hl(void) { pushWord(registers.hl); }
+void push_af(void) { pushWord(registers.af); }
