@@ -4,6 +4,7 @@
 #include <cpu.h>
 #include <gpu.h>
 #include <interrupt.h>
+#include <lcd.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,17 +12,13 @@
 #include <unistd.h>
 #include <pthread.h>
 
-#define SCANLINES 154
-#define CYCLES_PER_SCANLINE 456
-#define CPU_CYCLES_PER_FRAME (NB_SCANLINES * NB_CYCLES_PER_SCANLINE)
-
 void frame(void)
 {
     u8 cycle = 0;
     for (int i = 0; i < SCANLINES; ++i) {
         for (int j = 0; j < CYCLES_PER_SCANLINE; j += cycle) {
             cycle = cpu_step();
-            // gpu_step(i, j);
+            gpu_step(i, j);
         }
     }
 }
@@ -54,6 +51,13 @@ int main(int ac, char **av)
 
         BeginDrawing(); {
             ClearBackground(BLACK);
+
+            for (int i = 0; i < GB_LCD_WIDTH; ++i) {
+                for (int j = 0; j < GB_LCD_HEIGHT; ++j) {
+                    DrawPixel(i, j, scanline_buffer[i][j]);
+                }
+            }
+
             DrawText(TextFormat("Registre A: %04X", registers.a), 10, 10, 15, WHITE);
             DrawText(TextFormat("Registre B: %04X", registers.b), 10, 30, 15, WHITE);
             DrawText(TextFormat("Registre C: %04X", registers.c), 10, 50, 15, WHITE);
