@@ -51,7 +51,7 @@ void OAM_search(u8 scanline) {
         u8 tileNumber = memoryBus[OAM_START + i + 2];
         u8 attributes = memoryBus[OAM_START + i + 3];
 
-        bool spriteSize = (memoryBus[LCDC] & 0x04) ? 16 : 8; // 8x8 or 8x16
+        int spriteSize = (memoryBus[LCDC] & 0x04) ? 16 : 8;
         if (yPosition <= scanline && (yPosition + spriteSize) > scanline) {
             sprites[spriteCount].pos.y = yPosition;
             sprites[spriteCount].pos.x = xPosition;
@@ -116,10 +116,10 @@ void drawing(u8 scanline) {
     }
 }
 
-void H_blank(u8 scanline) {
+void H_blank(u8 __attribute__((unused)) scanline) {
     // Rien à faire
 }
 
-void V_blank(u8 scanline) {
+void V_blank(u8 __attribute__((unused)) scanline) {
     // Rien à faire
 }

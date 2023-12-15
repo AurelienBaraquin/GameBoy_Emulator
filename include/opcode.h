@@ -118,6 +118,16 @@ void or_l(void);
 void or_hlp(void);
 void or_n(u8 value);
 
+void and_a(void);
+void and_b(void);
+void and_c(void);
+void and_d(void);
+void and_e(void);
+void and_h(void);
+void and_l(void);
+void and_hlp(void);
+void and_n(u8 value);
+
 void cpl(void);
 void cp_b(void);
 void cp_c(void);

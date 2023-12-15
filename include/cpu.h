@@ -117,6 +117,9 @@ static const struct instruction instructions[256] = {
 	[0xF3] = {"DI", 1, di},
 	[0xFB] = {"EI", 1, ei},
 
+	[0x37] = {"SCF", 1, scf},
+	[0x3F] = {"CCF", 1, ccf},
+
 	// ROTATE
 	[0x07] = {"RLCA", 1, rlca},
 	[0x0F] = {"RRCA", 1, rrca},
@@ -267,6 +270,17 @@ static const struct instruction instructions[256] = {
 	[0xB6] = {"OR (HL)", 1, or_hlp},
 	[0xB7] = {"OR A", 1, or_a},
 	[0xF6] = {"OR n", 2, or_n},
+
+	// AND	
+	[0xA0] = {"AND B", 1, and_b},
+	[0xA1] = {"AND C", 1, and_c},
+	[0xA2] = {"AND D", 1, and_d},
+	[0xA3] = {"AND E", 1, and_e},
+	[0xA4] = {"AND H", 1, and_h},
+	[0xA5] = {"AND L", 1, and_l},
+	[0xA6] = {"AND (HL)", 1, and_hlp},
+	[0xA7] = {"AND A", 1, and_a},
+	[0xE6] = {"AND n", 2, and_n},
 
 	// CP
 	[0x2F] = {"CPL", 1, cpl},

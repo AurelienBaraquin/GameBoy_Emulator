@@ -160,6 +160,17 @@ void or_l(void) { or(registers.l); }
 void or_hlp(void) { or(readByte(registers.hl)); }
 void or_n(u8 value) { or(value); }
 
+// AND
+void and_a(void) { and(registers.a); }
+void and_b(void) { and(registers.b); }
+void and_c(void) { and(registers.c); }
+void and_d(void) { and(registers.d); }
+void and_e(void) { and(registers.e); }
+void and_h(void) { and(registers.h); }
+void and_l(void) { and(registers.l); }
+void and_hlp(void) { and(readByte(registers.hl)); }
+void and_n(u8 value) { and(value); }
+
 // CP
 void cpl(void);
 void cp_b(void) { cp(registers.b); }

@@ -29,7 +29,7 @@ u8 cpu_step(void)
         instruction = cbInstructions[byte];
     }
 
-    if (instruction.execute == NULL) {
+    if (instruction.execute == NULL && instruction.disassembly == NULL) {
         if (byte == CB_PREFIX)
             printf("Unimplemented CB instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
         else
