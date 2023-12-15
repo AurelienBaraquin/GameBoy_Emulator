@@ -56,7 +56,7 @@ int loadROM(char *romPath)
     }
 
     rewind(f); // Go back to the beginning of the file
-    if (fread(&memoryBus.rom, fileSize, 1, f) != 1) {
+    if (fread(memoryBus, fileSize, 1, f) != 1) {
         printf("Error reading ROM\n");
         return 1;
     }

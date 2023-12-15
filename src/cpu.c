@@ -13,7 +13,7 @@ void handleInterrupts(void);
 
 u8 cpu_step(void)
 {
-    if ((ime || halted) && (gbregisters.IF & gbregisters.IE & 0x1F)) {
+    if (halted && memoryBus[IF] & memoryBus[IE] & (VBLANK_INTR | LCDC_INTR | TIMER_INTR | SERIAL_INTR | CONTROL_INTR)) {
         handleInterrupts();
     }
 
@@ -46,6 +46,7 @@ u8 cpu_step(void)
 
 void execute(struct instruction instruction)
 {
+    printf("0x%04X: %s\n", registers.pc - instruction.len, instruction.disassembly);
     switch (instruction.len) {
         case 1:
             ((void (*)(void))instruction.execute)();
@@ -71,26 +72,24 @@ void handleInterrupts(void)
 {
     halted = 0;
 
-    if (!ime)
-        return;
+    u8 interrupt = memoryBus[IF] & memoryBus[IE] & (VBLANK_INTR | LCDC_INTR | TIMER_INTR | SERIAL_INTR | CONTROL_INTR);
 
-    ime = 0;
     pushWord(registers.pc);
 
-    if (gbregisters.IF & gbregisters.IE & VBLANK_INTR) {
-        registers.pc = VBLANK_INTR_ADDR;
-        gbregisters.IF ^= VBLANK_INTR;
-    } else if (gbregisters.IF & gbregisters.IE & LCDC_INTR) {
-        registers.pc = LCDC_INTR_ADDR;
-        gbregisters.IF ^= LCDC_INTR;
-    } else if (gbregisters.IF & gbregisters.IE & TIMER_INTR) {
-        registers.pc = TIMER_INTR_ADDR;
-        gbregisters.IF ^= TIMER_INTR;
-    } else if (gbregisters.IF & gbregisters.IE & SERIAL_INTR) {
-        registers.pc = SERIAL_INTR_ADDR;
-        gbregisters.IF ^= SERIAL_INTR;
-    } else if (gbregisters.IF & gbregisters.IE & CONTROL_INTR) {
-        registers.pc = CONTROL_INTR_ADDR;
-        gbregisters.IF ^= CONTROL_INTR;
+    if (interrupt & VBLANK_INTR) {
+        memoryBus[IF] &= ~VBLANK_INTR;
+        registers.pc = 0x40;
+    } else if (interrupt & LCDC_INTR) {
+        memoryBus[IF] &= ~LCDC_INTR;
+        registers.pc = 0x48;
+    } else if (interrupt & TIMER_INTR) {
+        memoryBus[IF] &= ~TIMER_INTR;
+        registers.pc = 0x50;
+    } else if (interrupt & SERIAL_INTR) {
+        memoryBus[IF] &= ~SERIAL_INTR;
+        registers.pc = 0x58;
+    } else if (interrupt & CONTROL_INTR) {
+        memoryBus[IF] &= ~CONTROL_INTR;
+        registers.pc = 0x60;
     }
 }

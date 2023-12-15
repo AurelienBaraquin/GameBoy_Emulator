@@ -1,4 +1,5 @@
 #include <cpu.h>
+#include <mem.h>
 
 void nop(void) {
     // Do nothing except increment the program counter by 1
@@ -9,9 +10,9 @@ void halt(void) {
 }
 
 void di(void) {
-    ime = 0;
+    memoryBus[IE] = 0;
 }
 
 void ei(void) {
-    ime = 1;
+    memoryBus[IE] = 1;
 }

@@ -33,12 +33,13 @@ int main(int ac, char **av)
         return 1;
     }
 
+    initializeMemory();
+
     if (loadROM(av[1]) != 0)
         return 1;
 
     srand(time(NULL));
     initializeRegisters();
-    initializeMemory();
     initializeRaylib();
 
     while (!WindowShouldClose()) {

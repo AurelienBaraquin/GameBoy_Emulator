@@ -1,17 +1,17 @@
 #include <registers.h>
 #include <interrupt.h>
+#include <mem.h>
 
+// If state is 0, the key is pressed, otherwise it is released
 void SetKeyStateGB(u8 key, u8 state)
 {
-    gbregisters.P1 |= 0x0F;
-    if (state == 0) {
-        key |= 0x01 << key;
-    } else {
-        key &= (0x01 << key) ^ 0xFF;
-    }
+    u8 mask = 1 << key;
 
-    if (!(gbregisters.P1 & INPUT_P14))
-        gbregisters.P1 &= 0x0F | ((key & 0x0F) ^ 0xFF);
-    if (!(gbregisters.P1 & INPUT_P15))
-        gbregisters.P1 &= 0xF0 | (((key >> 4) & 0x0F) ^ 0xFF);
+    if (state == 0)
+        memoryBus[JOYP] &= ~mask;
+    else
+        memoryBus[JOYP] |= mask;
+
+    if (memoryBus[JOYP] & 0x30)
+        memoryBus[IF] |= CONTROL_INTR;
 }
