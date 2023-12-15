@@ -17,11 +17,6 @@
 
 #include <raylib.h>
 
-#define INPUT_JOYP            0xFF00
-#define INPUT_KEYS          0x0F
-#define INPUT_JOYP4           0x10
-#define INPUT_JOYP5           0x20
-
 static const unsigned short keys[] = {
     KEY_RIGHT, // GB_RIGHT
     KEY_LEFT, // GB_LEFT

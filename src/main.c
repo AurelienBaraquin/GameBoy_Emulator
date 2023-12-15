@@ -46,9 +46,9 @@ int main(int ac, char **av)
         frame();
 
         for (int i = 0; i < (int)(sizeof(keys) / sizeof(keys[0])); ++i) {
-            if (IsKeyDown(keys[i]))
+            if (IsKeyPressed(keys[i]))
                 SetKeyStateGB(i, 0);
-            else if (IsKeyUp(keys[i]))
+            else if (IsKeyReleased(keys[i]))
                 SetKeyStateGB(i, 1);
         }
 
