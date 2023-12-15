@@ -94,6 +94,24 @@ void res_7_h(void);
 void res_7_l(void);
 void res_7_hl(void);
 
+void swap_a(void);
+void swap_b(void);
+void swap_c(void);
+void swap_d(void);
+void swap_e(void);
+void swap_h(void);
+void swap_l(void);
+void swap_hl(void);
+
+void srl_a(void);
+void srl_b(void);
+void srl_c(void);
+void srl_d(void);
+void srl_e(void);
+void srl_h(void);
+void srl_l(void);
+void srl_hl(void);
+
 
 
 // Standard

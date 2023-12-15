@@ -58,17 +58,18 @@ int main(int ac, char **av)
                 }
             }
 
-            DrawText(TextFormat("Registre A: %04X", registers.a), 10, 10, 15, WHITE);
-            DrawText(TextFormat("Registre B: %04X", registers.b), 10, 30, 15, WHITE);
-            DrawText(TextFormat("Registre C: %04X", registers.c), 10, 50, 15, WHITE);
-            DrawText(TextFormat("Registre D: %04X", registers.d), 10, 70, 15, WHITE);
-            DrawText(TextFormat("Registre E: %04X", registers.e), 10, 90, 15, WHITE);
-            DrawText(TextFormat("Registre F: %04X", registers.f), 10, 110, 15, WHITE);
-            DrawText(TextFormat("Registre H: %04X", registers.h), 10, 130, 15, WHITE);
-            DrawText(TextFormat("Registre L: %04X", registers.l), 10, 150, 15, WHITE);
-            DrawText(TextFormat("Registre SP: %04X", registers.sp), 10, 170, 15, WHITE);
-            DrawText(TextFormat("Registre PC: %04X", registers.pc), 10, 190, 15, WHITE);
+            DrawText(TextFormat("Registre A: %04X", registers.a), 200, 10, 15, WHITE);
+            DrawText(TextFormat("Registre B: %04X", registers.b), 200, 30, 15, WHITE);
+            DrawText(TextFormat("Registre C: %04X", registers.c), 200, 50, 15, WHITE);
+            DrawText(TextFormat("Registre D: %04X", registers.d), 200, 70, 15, WHITE);
+            DrawText(TextFormat("Registre E: %04X", registers.e), 200, 90, 15, WHITE);
+            DrawText(TextFormat("Registre F: %04X", registers.f), 200, 110, 15, WHITE);
+            DrawText(TextFormat("Registre H: %04X", registers.h), 200, 130, 15, WHITE);
+            DrawText(TextFormat("Registre L: %04X", registers.l), 200, 150, 15, WHITE);
+            DrawText(TextFormat("Registre SP: %04X", registers.sp), 200, 170, 15, WHITE);
+            DrawText(TextFormat("Registre PC: %04X", registers.pc), 200, 190, 15, WHITE);
         } EndDrawing();
+        usleep(500000);
     }
 
     CloseWindow();

@@ -107,6 +107,26 @@ static const struct instruction cbInstructions[256] = {
 	[0xBD] = {"RES 7, L", 2, res_7_h},
 	[0xBE] = {"RES 7, (HL)", 2, res_7_l},
 	[0xBF] = {"RES 7, A", 2, res_7_hl},
+
+	// SWAP
+	[0x37] = {"SWAP A", 2, swap_a},
+	[0x30] = {"SWAP B", 2, swap_b},
+	[0x31] = {"SWAP C", 2, swap_c},
+	[0x32] = {"SWAP D", 2, swap_d},
+	[0x33] = {"SWAP E", 2, swap_e},
+	[0x34] = {"SWAP H", 2, swap_h},
+	[0x35] = {"SWAP L", 2, swap_l},
+	[0x36] = {"SWAP (HL)", 2, swap_hl},
+
+	// SRL
+	[0x3F] = {"SRL A", 2, srl_a},
+	[0x38] = {"SRL B", 2, srl_b},
+	[0x39] = {"SRL C", 2, srl_c},
+	[0x3A] = {"SRL D", 2, srl_d},
+	[0x3B] = {"SRL E", 2, srl_e},
+	[0x3C] = {"SRL H", 2, srl_h},
+	[0x3D] = {"SRL L", 2, srl_l},
+	[0x3E] = {"SRL (HL)", 2, srl_hl},
 };
 
 static const struct instruction instructions[256] = {

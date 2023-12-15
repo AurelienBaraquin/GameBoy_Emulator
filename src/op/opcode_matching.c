@@ -134,6 +134,33 @@ void res_7_hl(void) {
     writeByte(registers.hl, value);
 }
 
+void swap_a(void) { swap(&registers.a); }
+void swap_b(void) { swap(&registers.b); }
+void swap_c(void) { swap(&registers.c); }
+void swap_d(void) { swap(&registers.d); }
+void swap_e(void) { swap(&registers.e); }
+void swap_h(void) { swap(&registers.h); }
+void swap_l(void) { swap(&registers.l); }
+void swap_hl(void) {
+    u8 value = readByte(registers.hl);
+    swap(&value);
+    writeByte(registers.hl, value);
+}
+
+void srl_a(void) { srl(&registers.a); }
+void srl_b(void) { srl(&registers.b); }
+void srl_c(void) { srl(&registers.c); }
+void srl_d(void) { srl(&registers.d); }
+void srl_e(void) { srl(&registers.e); }
+void srl_h(void) { srl(&registers.h); }
+void srl_l(void) { srl(&registers.l); }
+void srl_hl(void) {
+    u8 value = readByte(registers.hl);
+    srl(&value);
+    writeByte(registers.hl, value);
+}
+
+
 
 
 // Standard

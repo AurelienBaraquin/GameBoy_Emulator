@@ -21,17 +21,19 @@ u8 cpu_step(void)
         return 1;
 
     u8 byte = readByte(registers.pc);
+    u8 cb_byte = byte;
 
     struct instruction instruction = instructions[byte];
 
     if (byte == CB_PREFIX) {
-        byte = readByte(registers.pc + 1);
-        instruction = cbInstructions[byte];
+        cb_byte = readByte(registers.pc + 1);
+        instruction = cbInstructions[cb_byte];
+        byte = cb_byte;
     }
 
     if (instruction.execute == NULL && instruction.disassembly == NULL) {
         if (byte == CB_PREFIX)
-            printf("Unimplemented CB instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
+            printf("Unimplemented CB instruction: 0x%02X at 0x%04X\n", cb_byte, registers.pc);
         else
             printf("Unimplemented instruction: 0x%02X at 0x%04X\n", byte, registers.pc);
         exit(1);
