@@ -46,7 +46,7 @@ u8 cpu_step(void)
 
 void execute(struct instruction instruction)
 {
-    printf("0x%04X: %s\n", registers.pc - instruction.len, instruction.disassembly);
+    // printf("0x%04X: %s\n", registers.pc - instruction.len, instruction.disassembly);
     switch (instruction.len) {
         case 1:
             ((void (*)(void))instruction.execute)();
